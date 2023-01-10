@@ -5,8 +5,37 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.ndviet</groupId>
     <artifactId>test-parent-pom</artifactId>
+    <name>Test Parent POM</name>
     <version>${revision}</version>
+    <description>Test parent POM is used to structure the entire projects.</description>
+    <url>https://github.com/${github.organization}/${project.artifactId}/tree/master</url>
     <packaging>pom</packaging>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>${github.id}</id>
+            <name>${github.name}</name>
+            <email>${github.email}</email>
+            <roles>
+                <role>maintainer</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:${github.organization}/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:${github.organization}/${project.artifactId}.git
+        </developerConnection>
+        <url>https://github.com/${github.organization}/${project.artifactId}/tree/master</url>
+    </scm>
 
     <properties>
         <github.id>ndviet</github.id>
@@ -154,7 +183,10 @@
                     <version>${flatten-maven-plugin.version}</version>
                     <configuration>
                         <updatePomFile>true</updatePomFile>
-                        <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                        <flattenMode>bom</flattenMode>
+                        <pomElements>
+                            <build>keep</build>
+                        </pomElements>
                     </configuration>
                     <executions>
                         <execution>
@@ -296,13 +328,11 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
-
     </build>
 
     <profiles>
         <profile>
-            <id>release</id>
+            <id>flatten-pom</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -311,6 +341,40 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>flatten-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>release</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
