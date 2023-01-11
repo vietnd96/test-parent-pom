@@ -8,7 +8,7 @@
     <name>Test Parent POM</name>
     <version>${revision}</version>
     <description>Test parent POM is used to structure the entire projects.</description>
-    <url>https://${github.url}/${github.organization}/${project.artifactId}/tree/${github.branch}</url>
+    <url>https://${github.url}/${github.organization}/${github.repository}/tree/${github.branch}</url>
     <packaging>pom</packaging>
 
     <licenses>
@@ -31,10 +31,10 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@${github.url}:${github.organization}/${project.artifactId}.git</connection>
-        <developerConnection>scm:git:ssh://git@${github.url}:${github.organization}/${project.artifactId}.git
+        <connection>scm:git:git@${github.url}:${github.organization}/${github.repository}.git</connection>
+        <developerConnection>scm:git:ssh://git@${github.url}:${github.organization}/${github.repository}.git
         </developerConnection>
-        <url>https://${github.url}/${github.organization}/${project.artifactId}/tree/${github.branch}</url>
+        <url>https://${github.url}/${github.organization}/${github.repository}/tree/${github.branch}</url>
     </scm>
 
     <properties>
@@ -44,6 +44,7 @@
         <github.name>Nguyen Duc Viet</github.name>
         <github.organization>vietnd96</github.organization>
         <github.branch>master</github.branch>
+        <github.repository>test-parent-pom</github.repository>
         <revision>v23.1.5</revision>
         <test-automation-fwk.version>${revision}</test-automation-fwk.version>
         <test-java2robot-adapter.version>${revision}</test-java2robot-adapter.version>
