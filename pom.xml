@@ -45,7 +45,7 @@
         <github.organization>vietnd96</github.organization>
         <github.branch>master</github.branch>
         <github.repository>test-parent-pom</github.repository>
-        <revision>v23.1.5</revision>
+        <revision>v23.1.6</revision>
         <test-automation-fwk.version>${revision}</test-automation-fwk.version>
         <test-java2robot-adapter.version>${revision}</test-java2robot-adapter.version>
         <maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
