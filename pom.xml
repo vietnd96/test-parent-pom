@@ -45,7 +45,7 @@
         <github.organization>vietnd96</github.organization>
         <github.branch>master</github.branch>
         <github.repository>test-parent-pom</github.repository>
-        <revision>v23.1.7</revision>
+        <revision>v23.1.9</revision>
         <test-automation-fwk.version>${revision}</test-automation-fwk.version>
         <test-java2robot-adapter.version>${revision}</test-java2robot-adapter.version>
         <maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
@@ -83,6 +83,7 @@
         <staging>false</staging>
         <release>false</release>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
+        <flattenMode>bom</flattenMode>
     </properties>
 
     <distributionManagement>
@@ -190,10 +191,7 @@
                     <version>${flatten-maven-plugin.version}</version>
                     <configuration>
                         <updatePomFile>true</updatePomFile>
-                        <flattenMode>bom</flattenMode>
-                        <pomElements>
-                            <build>keep</build>
-                        </pomElements>
+                        <flattenMode>${flattenMode}</flattenMode>
                     </configuration>
                     <executions>
                         <execution>
