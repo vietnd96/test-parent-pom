@@ -3,7 +3,7 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.ndviet</groupId>
+    <groupId>org.ndviet</groupId>
     <artifactId>test-parent-pom</artifactId>
     <name>Test Parent POM</name>
     <version>${revision}</version>
@@ -45,7 +45,7 @@
         <github.organization>vietnd96</github.organization>
         <github.branch>master</github.branch>
         <github.repository>test-parent-pom</github.repository>
-        <revision>23.1.17</revision>
+        <revision>23.1.22</revision>
         <test-automation-fwk.version>${revision}</test-automation-fwk.version>
         <test-java2robot-adapter.version>${revision}</test-java2robot-adapter.version>
         <maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
@@ -73,7 +73,7 @@
         <log4j2.version>2.19.0</log4j2.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <jackson-databind.version>2.14.1</jackson-databind.version>
-        <freemarker.version>2.3.31</freemarker.version>
+        <freemarker.version>2.3.32</freemarker.version>
         <spring-core.version>6.0.4</spring-core.version>
         <javalib-core.version>2.0.3</javalib-core.version>
         <robotframework.version>4.1.2</robotframework.version>
