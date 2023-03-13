@@ -17,5 +17,5 @@ configurations using inheritance between pom files. It helps in easy maintenance
 In the same directory, clone this repository first and after that clone other dependent repositories.
 
 ```shell
-git clone git@github.com:vietnd96/test-parent-pom.git
+git clone git@github.com:ndviet/test-parent-pom.git
 ```
